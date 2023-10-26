@@ -6,7 +6,6 @@ class JadwalController extends BaseController
 {
     public function index(): string
     {
-        $data['title'] = "Jadwal";
-        return view('pages/jadwal', $data);
+        return view('pages/jadwal');
     }
 }

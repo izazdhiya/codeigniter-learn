@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>E-Learning | <?= $title ?></title>
+<title>E-Learning | <?= $this->renderSection('title') ?></title>
 
 <link rel="stylesheet" href="dist/css/style.css">
 <!-- Font Awesome -->

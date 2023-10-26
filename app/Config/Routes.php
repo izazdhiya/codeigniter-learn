@@ -12,5 +12,6 @@ $routes->get('/jadwal', 'JadwalController::index');
 $routes->get('/informasi', 'InformasiController::index');
 $routes->get('/profil', 'ProfileController::index');
 
-service('auth')->routes($routes);
-$routes->setDefaultController('AuthController');
+service('auth')->routes($routes, ['except' => ['login', 'register']]);
+$routes->get('login', 'Auth\LoginController::loginView');
+$routes->get('register', 'Auth\RegisterController::registerView');
