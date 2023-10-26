@@ -11,3 +11,6 @@ $routes->get('/tugas', 'TugasController::index');
 $routes->get('/jadwal', 'JadwalController::index');
 $routes->get('/informasi', 'InformasiController::index');
 $routes->get('/profil', 'ProfileController::index');
+
+service('auth')->routes($routes);
+$routes->setDefaultController('AuthController');
