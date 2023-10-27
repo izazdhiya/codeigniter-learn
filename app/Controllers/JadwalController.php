@@ -6,6 +6,10 @@ class JadwalController extends BaseController
 {
     public function index(): string
     {
-        return view('pages/jadwal');
+        if (auth()->loggedIn()) {
+            return view('pages/jadwal');
+        }
+
+        return view('pages/auth/login');
     }
 }

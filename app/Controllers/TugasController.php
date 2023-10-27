@@ -6,6 +6,10 @@ class TugasController extends BaseController
 {
     public function index(): string
     {
-        return view('pages/tugas');
+        if (auth()->loggedIn()) {
+            return view('pages/tugas');
+        }
+
+        return view('pages/auth/login');
     }
 }

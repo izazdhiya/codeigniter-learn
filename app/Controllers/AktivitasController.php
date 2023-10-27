@@ -6,6 +6,10 @@ class AktivitasController extends BaseController
 {
     public function index(): string
     {
-        return view('pages/aktivitas');
+        if (auth()->loggedIn()) {
+            return view('pages/aktivitas');
+        }
+
+        return view('pages/auth/login');
     }
 }

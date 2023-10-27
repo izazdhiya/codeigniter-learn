@@ -4,28 +4,34 @@
 
 <?= $this->section('content') ?>
 
+    <div class="toast toast-top toast-end">
+
+    <?php if (session('error') !== null) : ?>
+        <div class="alert alert-danger" role="alert">
+            <span><?= session('error') ?></span>
+        </div>
+    <?php elseif (session('errors') !== null) : ?>
+        <div class="alert alert-danger" role="alert">
+            <?php if (is_array(session('errors'))) : ?>
+                <?php foreach (session('errors') as $error) : ?>
+                    <?= $error ?>
+                    <br>
+                <?php endforeach ?>
+            <?php else : ?>
+                <?= session('errors') ?>
+            <?php endif ?>
+        </div>
+    <?php endif ?>
+
+    <?php if (session('message') !== null) : ?>
+        <div class="alert alert-success" role="alert"><?= session('message') ?></div>
+    <?php endif ?>
+
+    </div>
+
 <div class="relative flex flex-col items-center justify-center h-screen overflow-hidden">
         <div class="w-full p-6 bg-primary-focus border-t-4 border-base-200 rounded-md shadow-md border-top lg:max-w-lg">
             <h1 class="text-3xl font-semibold text-center">PKBM Maju Lestari</h1>
-
-            <?php if (session('error') !== null) : ?>
-                <div class="alert alert-danger" role="alert"><?= session('error') ?></div>
-            <?php elseif (session('errors') !== null) : ?>
-                <div class="alert alert-danger" role="alert">
-                    <?php if (is_array(session('errors'))) : ?>
-                        <?php foreach (session('errors') as $error) : ?>
-                            <?= $error ?>
-                            <br>
-                        <?php endforeach ?>
-                    <?php else : ?>
-                        <?= session('errors') ?>
-                    <?php endif ?>
-                </div>
-            <?php endif ?>
-
-            <?php if (session('message') !== null) : ?>
-            <div class="alert alert-success" role="alert"><?= session('message') ?></div>
-            <?php endif ?>
 
             <form class="space-y-4"action="<?= url_to('login') ?>" method="post">
             <?= csrf_field() ?>

@@ -14,4 +14,5 @@ $routes->get('/profil', 'ProfileController::index');
 
 service('auth')->routes($routes, ['except' => ['login', 'register']]);
 $routes->get('login', 'Auth\LoginController::loginView');
+$routes->post('login', 'Auth\LoginController::loginAction');
 $routes->get('register', 'Auth\RegisterController::registerView');

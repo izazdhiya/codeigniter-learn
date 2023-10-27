@@ -6,6 +6,10 @@ class InformasiController extends BaseController
 {
     public function index(): string
     {
-        return view('pages/informasi');
+        if (auth()->loggedIn()) {
+            return view('pages/informasi');
+        }
+
+        return view('pages/auth/login');
     }
 }
